@@ -9,7 +9,6 @@ import SkillsPreview from './preview/SkillsPreview'
 function ResumePreview() {
 
     const {resumeInfo}=useContext(ResumeInfoContext)
-  console.log(resumeInfo?.education);
   
   return (
     <div className='shadow-lg h-full p-14 border-t-[20px]'
@@ -23,9 +22,9 @@ function ResumePreview() {
         {/* Professional Experience  */}
            {resumeInfo?.Experience?.length>0&& <ExperiencePreview resumeInfo={resumeInfo} />}
         {/* Educational  */}
-           {resumeInfo?.education?.length>0&&  <EducationalPreview resumeInfo={resumeInfo} />}
+           {resumeInfo?.Education?.length>0&&  <EducationalPreview resumeInfo={resumeInfo} />}
         {/* Skilss  */}
-           {resumeInfo?.skills?.length>0&&  <SkillsPreview resumeInfo={resumeInfo}/>}
+           {resumeInfo?.Skills?.length>0&&  <SkillsPreview resumeInfo={resumeInfo}/>}
     </div>
   )
 }

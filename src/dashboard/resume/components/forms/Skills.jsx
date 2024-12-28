@@ -19,10 +19,14 @@ function Skills() {
 
     const [loading,setLoading]=useState(false);
     const {resumeInfo,setResumeInfo}=useContext(ResumeInfoContext);
-   
-    // useEffect(()=>{
-    //     resumeInfo&&setSkillsList(resumeInfo?.skills)
-    //   },[])
+
+    useEffect(() => {
+        setResumeInfo({
+            ...resumeInfo,
+            Skills: skillsList
+        });
+    
+    }, [skillsList]);
    
     const handleChange=(index,name,value)=>{
         const newEntries=skillsList.slice();
@@ -61,12 +65,7 @@ function Skills() {
         })
     }
 
-    useEffect(()=>{
-        setResumeInfo({
-            ...resumeInfo,
-            skills:skillsList
-        })
-    },[skillsList])
+    
   return (
     <div className='p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10'>
     <h2 className='font-bold text-lg'>Skills</h2>

@@ -39,7 +39,7 @@ function FormSection() {
         {activeFormIndex==1?  
         <PersonalDetail enabledNext={(v)=>setEnableNext(v)} />
         :activeFormIndex==2?
-              <Summery  enabledNext={(v)=>setEnableNext(v)} />
+              <Summery  enabledNext={(v)=>setEnableNext(v)}  />
         :activeFormIndex==3?
           <Experience />  
           :activeFormIndex==4?
@@ -47,7 +47,7 @@ function FormSection() {
           :activeFormIndex==5?
           <Skills/>
           :activeFormIndex==6?
-          <Navigate to={'/my-resume/'+resumeId+"/view"}/>
+          <Navigate to={'/my-resume/'+resumeId+"/view"} />
               
         :null
           }

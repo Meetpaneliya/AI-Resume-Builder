@@ -1,5 +1,5 @@
 //import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 function EducationalPreview({ resumeInfo }) {
   return (
@@ -8,7 +8,7 @@ function EducationalPreview({ resumeInfo }) {
         Education
       </h2>
       <hr style={{ borderColor: resumeInfo?.themeColor }} />
-      {resumeInfo?.education.map((education, index) => (
+      {resumeInfo?.Education.map((education, index) => (
         <div key={index} className="my-5">
           <h2 className="text-sm font-bold" style={{ color: resumeInfo?.themeColor }}>
             {education.universityName}
@@ -24,20 +24,20 @@ function EducationalPreview({ resumeInfo }) {
   );
 }
 
-EducationalPreview.propTypes = {
-  resumeInfo: PropTypes.shape({
-    themeColor: PropTypes.string,
-    education: PropTypes.arrayOf(
-      PropTypes.shape({
-        universityName: PropTypes.string.isRequired,
-        degree: PropTypes.string.isRequired,
-        major: PropTypes.string.isRequired,
-        startDate: PropTypes.string.isRequired,
-        endDate: PropTypes.string.isRequired,
-        description: PropTypes.string,
-      })
-    ).isRequired,
-  }).isRequired,
-};
+// EducationalPreview.propTypes = {
+//   resumeInfo: PropTypes.shape({
+//     themeColor: PropTypes.string,
+//     education: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         universityName: PropTypes.string.isRequired,
+//         degree: PropTypes.string.isRequired,
+//         major: PropTypes.string.isRequired,
+//         startDate: PropTypes.string.isRequired,
+//         endDate: PropTypes.string.isRequired,
+//         description: PropTypes.string,
+//       })
+//     ).isRequired,
+//   }).isRequired,
+// };
 
 export default EducationalPreview;

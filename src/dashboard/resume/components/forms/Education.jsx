@@ -25,12 +25,21 @@ function Education() {
   ]);
 
   // Initialize educationalList only ONCE with resumeInfo.education
-  useEffect(() => {
-    if (resumeInfo?.education && Array.isArray(resumeInfo.education)) {
-      setEducationalList(resumeInfo.education);
-    }
-  }, [resumeInfo]);
+  // useEffect(() => {
+  //   if (resumeInfo?.education && Array.isArray(resumeInfo.education)) {
+  //     setEducationalList(resumeInfo.education);
+  //   }
+  // }, [resumeInfo]);
 
+  useEffect(() => {
+    setResumeInfo({
+        ...resumeInfo,
+        Education: educationalList
+    });
+
+}, [educationalList]);
+
+ 
   const handleChange = (event, index) => {
     const newEntries = educationalList.slice();
     const { name, value } = event.target;
@@ -60,7 +69,7 @@ function Education() {
     setLoading(true);
     const data = {
       data: {
-        education: educationalList.map(({...rest }) => rest),
+        Education: educationalList.map(({...rest }) => rest),
       },
     };
 
@@ -68,7 +77,7 @@ function Education() {
       (resp) => {
         console.log(resp);
         setLoading(false);
-        setResumeInfo((prev) => ({ ...prev, education: educationalList })); // Update context only on save
+        setResumeInfo((prev) => ({ ...prev, Education: educationalList })); // Update context only on save
         toast('Details updated!');
       },
       () => {
