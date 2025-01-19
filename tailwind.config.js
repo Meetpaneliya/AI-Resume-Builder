@@ -23,6 +23,10 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        fontFamily: {
+          pacifico: ["Pacifico", "cursive"], // Add Pacifico font
+        },
         primary: {
           DEFAULT: "#9f5bff",
           foreground: "hsl(var(--primary-foreground))",

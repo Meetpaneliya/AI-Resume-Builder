@@ -4,20 +4,29 @@
 function EducationalPreview({ resumeInfo }) {
   return (
     <div className="my-6">
-      <h2 className="text-center font-bold text-sm mb-2" style={{ color: resumeInfo?.themeColor }}>
-        Education
-      </h2>
+      <div className="flex items-center justify-center gap-1 mb-1">
+        <img src='https://cdn-icons-png.flaticon.com/128/123/123402.png' alt="Education" className="w-7 h-7" />
+        <h2 className="font-bold text-sm" style={{ color: resumeInfo?.themeColor }}>
+          Education
+        </h2>
+      </div>
+
       <hr style={{ borderColor: resumeInfo?.themeColor }} />
+
       {resumeInfo?.Education.map((education, index) => (
-        <div key={index} className="my-5">
-          <h2 className="text-sm font-bold" style={{ color: resumeInfo?.themeColor }}>
-            {education.universityName}
-          </h2>
-          <h2 className="text-xs flex justify-between">
-            {education?.degree} in {education?.major}
-            <span>{education?.startDate} - {education?.endDate}</span>
-          </h2>
-          <p className="text-xs my-2">{education?.description}</p>
+        <div key={index} className="my-4">
+          <div className="flex justify-between text-xs ">
+            <div>
+              <h2 className="text-sm font-bold" style={{ color: resumeInfo?.themeColor }}>
+                {education.universityName}
+              </h2>
+              <h2 className="text-xs flex justify-between" style={{ color: resumeInfo?.themeColor }}>
+                {education?.degree} in {education?.major}
+              </h2>
+            </div>
+            <span style={{ color: resumeInfo?.themeColor }}>{education?.startDate} - {education?.endDate}</span>
+          </div>
+          <p className="text-xs my-3 font-sans">{education?.description}</p>
         </div>
       ))}
     </div>

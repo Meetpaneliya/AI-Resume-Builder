@@ -50,7 +50,7 @@ function AddResume() {
     return (
         <div>
             <div
-                className="p-14 py-24 border 
+                className="p-14 py-24 border border-gray-700 bg-purple-200 
                      items-center flex 
                      justify-center bg-secondary
                      rounded-lg h-[280px]

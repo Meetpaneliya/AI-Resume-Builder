@@ -33,13 +33,13 @@ function Education() {
 
   useEffect(() => {
     setResumeInfo({
-        ...resumeInfo,
-        Education: educationalList
+      ...resumeInfo,
+      Education: educationalList
     });
 
-}, [educationalList]);
+  }, [educationalList]);
 
- 
+
   const handleChange = (event, index) => {
     const newEntries = educationalList.slice();
     const { name, value } = event.target;
@@ -69,7 +69,7 @@ function Education() {
     setLoading(true);
     const data = {
       data: {
-        Education: educationalList.map(({...rest }) => rest),
+        Education: educationalList.map(({ ...rest }) => rest),
       },
     };
 
@@ -89,7 +89,10 @@ function Education() {
 
   return (
     <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
-      <h2 className="font-bold text-lg">Education</h2>
+      <div className="flex items-center">
+        <img src='https://cdn-icons-png.flaticon.com/128/9232/9232084.png' alt="Education" className="w-7 h-7 mr-2" />
+        <h2 className="font-bold text-lg">Education</h2>
+      </div>
       <p>Add Your educational details</p>
 
       <div>

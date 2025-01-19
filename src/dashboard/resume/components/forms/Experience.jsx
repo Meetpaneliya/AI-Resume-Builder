@@ -88,7 +88,11 @@ function Experience() {
     return (
         <div>
             <div className='p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10'>
-                <h2 className='font-bold text-lg'>Professional Experience</h2>
+                <div className="flex items-center">
+                    <img src='https://cdn-icons-png.flaticon.com/128/2697/2697923.png' alt="Education" className="w-12 h-12" />
+                    <h2 className="font-bold text-lg">Professional Experience</h2>
+                </div>
+
                 <p>Add Your previous Job experience</p>
                 <div>
                     {experinceList?.map((item, index) => (
