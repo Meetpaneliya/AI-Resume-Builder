@@ -24,7 +24,7 @@ function EducationalPreview({ resumeInfo }) {
                 {education?.degree} in {education?.major}
               </h2>
             </div>
-            <span style={{ color: resumeInfo?.themeColor }}>{education?.startDate} - {education?.endDate}</span>
+            <span style={{ color: resumeInfo?.themeColor }}>{education?.startDate} To {education?.endDate}</span>
           </div>
           <p className="text-xs my-3 font-sans">{education?.description}</p>
         </div>
