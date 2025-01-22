@@ -78,7 +78,8 @@ function ResumeCardItem({ resume, refreshData }) {
             <DropdownMenuItem onClick={() => navigation('/my-resume/' + resume.documentId + "/view")}>
               Download
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setOpenAlert(true)}>Delete</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setOpenAlert(true)}>
+              Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 

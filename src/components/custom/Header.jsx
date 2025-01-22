@@ -25,7 +25,7 @@ function Header() {
                     </div>
                 </div>
             ) : (
-                <div className="pr-24">
+                <div className="mr-24 border-black bg-purple-400 text-black rounded-md hover:bg-purple-600 hover:text-white">
                     <Link to={'/auth/sign-in'}>
                         <Button>Get Started</Button>
                     </Link>

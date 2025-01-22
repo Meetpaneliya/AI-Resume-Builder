@@ -26,31 +26,53 @@ function Summery({ enabledNext }) {
         }
     }, [summery]);
 
+    // const GenerateSummeryFromAI = async () => {
+    //     setLoading(true);
+    //     const PROMPT = prompt.replace('{jobTitle}', resumeInfo?.jobTitle);
+    //     console.log(PROMPT);
+
+    //     try {
+    //         const result = await AIChatSession.sendMessage(PROMPT);
+    //         const parsedResponse = JSON.parse(result.response.text());
+
+    //         // Ensure the response is an array
+    //         if (Array.isArray(parsedResponse)) {
+    //             setAiGenerateSummeryList(parsedResponse);
+    //         } else {
+    //             // If not an array, log and handle error gracefully
+    //             console.error("Invalid response format", parsedResponse);
+    //             setAiGenerateSummeryList([]);
+    //         }
+    //     } catch (error) {
+    //         console.error("Error generating summary:", error);
+    //         setAiGenerateSummeryList([]);
+    //     }
+
+    //     setLoading(false);
+    // };
+
     const GenerateSummeryFromAI = async () => {
         setLoading(true);
         const PROMPT = prompt.replace('{jobTitle}', resumeInfo?.jobTitle);
-        console.log(PROMPT);
-
+        
         try {
             const result = await AIChatSession.sendMessage(PROMPT);
-            const parsedResponse = JSON.parse(result.response.text());
-
-            // Ensure the response is an array
-            if (Array.isArray(parsedResponse)) {
-                setAiGenerateSummeryList(parsedResponse);
-            } else {
-                // If not an array, log and handle error gracefully
-                console.error("Invalid response format", parsedResponse);
-                setAiGenerateSummeryList([]);
-            }
+            let parsedResponse = JSON.parse(result.response.text());
+    
+            // Handle both array and object with summary_list formats
+            const summaryList = Array.isArray(parsedResponse) 
+                ? parsedResponse 
+                : parsedResponse.summary_list || [];
+    
+            setAiGenerateSummeryList(summaryList);
+            setLoading(false);
         } catch (error) {
-            console.error("Error generating summary:", error);
+            console.error('Error generating summary:', error);
             setAiGenerateSummeryList([]);
+            setLoading(false);
         }
-
-        setLoading(false);
-    };
-
+    }
+    
     const onSave = (e) => {
         e.preventDefault();
         setLoading(true);
